@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://db0j1dy112sa0"]
+
+[ext_resource type="Texture2D" uid="uid://cnhguiotdpmlk" path="res://kenney_space-shooter-redux/PNG/Enemies/enemyBlack3.png" id="1_r55y3"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_yybeb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0d8h6"]
+size = Vector2(46, 54)
+
+[node name="enemy" type="Area2D"]
+script = ExtResource("1_yybeb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_r55y3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_0d8h6")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
